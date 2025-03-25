@@ -773,7 +773,7 @@ footer .container .row .links a:hover {
   .open_menu i {
     cursor: pointer;
     padding: 10px;
-    border: 1px solid var(--main-color);
+
     font-size: 29px;
     width: 50px;
     text-align: center;
@@ -811,7 +811,36 @@ footer .container{
 }
 @media (max-width: 1000px){
 body{
-    padding-top: 300px;
+    padding-top: 200px;
+}
+header .bottom_header .login_singup a{
+    font-size: 12px;
+}
+
+header .bottom_header .category_nav {
+    width: 150px;
+   
+}
+header .bottom_header .category_nav .category_btn p{
+    font-size: 10px;
+    border-bottom: 0;
+}
+.top_slide h2{
+    font-size: 12px;
+}
+.top_slide h2{
+    font-size: 14px;
+}
+.product .icons .btn_add_cart{
+    font-size: 12px;
+    width: 130px;
+}
+.product .icons .icon_product{
+    width: 30px;
+    height: 30px;
+}
+.product .img_product{
+    height: 150px;
 }
 }
 @media (max-width: 600px){
@@ -843,5 +872,9 @@ font-size: 10px;
     }
     footer .container .row{
         width: 100%;
+    }
+    .product .icons .btn_add_cart{
+        font-size: 10px;
+        
     }
 }
