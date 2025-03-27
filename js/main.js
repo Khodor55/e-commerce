@@ -54,6 +54,11 @@ function addToCart(product){
 function updateCart(){
 const cartItemsContainer = document.getElementById('cart_items');
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let checkout_items = document.getElementById('checkout_items');
+if(checkout_items){
+    checkout_items.innerHTML = ''
+}
+
 var totale_price = 0;
 var total_count = 0;
 cartItemsContainer.innerHTML ='';
@@ -82,6 +87,28 @@ cart.forEach((item,index)=>{
       </div>
     
     `
+     
+    if(checkout_items){
+        checkout_items.innerHTML +=`
+        <div class="item_card">
+    <div class="img_name">
+        <img src="${item.img}" alt="">
+        <div class="content">
+            <h4>${item.name}</h4>
+            <p class="price_cart">${item.price}</p>
+            <div class="quantity_control">
+                <button class="decrease_quantity" data-index='${index}'>-</button>
+                <span class="quantity">${item.quantity}</span>
+                <button class="increase_quantity" data-index='${index}'>+</button>
+              </div>
+        </div>
+        <button class="delete_item" data-index='${index}'>
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </div>
+</div>
+        `
+    }
 })
 let price_cart_total = document.querySelector('.price_cart_total');
 let Count_item_cart = document.querySelector('.Count_item_cart');
@@ -89,7 +116,12 @@ let count_item_header = document.querySelector('.count_item_header');
 price_cart_total.innerHTML = totale_price + `$`;
     Count_item_cart.innerHTML = total_count;
     count_item_header.innerHTML = total_count;
-
+if(checkout_items){
+    const subtotal_checkout = document.querySelector('.subtotal_checkout');
+    const subtotal_total = document.querySelector('.subtotal_total');
+    subtotal_checkout.innerHTML = totale_price + `$`;
+    subtotal_total.innerHTML = totale_price + `$`;
+}
 
 
 
